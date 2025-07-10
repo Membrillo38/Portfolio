@@ -10,6 +10,7 @@ import Hero from "@/components/pc/hero";
 import Projects from "@/components/pc/projects";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import PlausibleProvider from 'next-plausible'
 
 export default function Home() {
 
@@ -25,35 +26,37 @@ export default function Home() {
 
   return (
     <>
-      {isLargeScreen ? (
-        <>
-          <Header />
-          <div id="home">
-            <Hero />
-          </div>
-          <div id="about">
-            <AboutMe />
-          </div>
-          <div id="projects">
-            <Projects />
-          </div>
-          <PaddingAbajo />
-        </>
-      ) : (
-        <>
-          <Header />
-          <div id="home">
-            <HeroMobile />
-          </div>
-          <div id="about">
-            <AboutMeMobile />
-          </div>
-          <div id="projects">
-            <ProjectsMobile />
-          </div>
-          <PaddingAbajo />
-        </>
-      )}
+        <PlausibleProvider domain="andresportfolio.vercel.app">
+        {isLargeScreen ? (
+          <>
+            <Header />
+            <div id="home">
+              <Hero />
+            </div>
+            <div id="about">
+              <AboutMe />
+            </div>
+            <div id="projects">
+              <Projects />
+            </div>
+            <PaddingAbajo />
+          </>
+        ) : (
+          <>
+            <Header />
+            <div id="home">
+              <HeroMobile />
+            </div>
+            <div id="about">
+              <AboutMeMobile />
+            </div>
+            <div id="projects">
+              <ProjectsMobile />
+            </div>
+            <PaddingAbajo />
+          </>
+        )}
+      </PlausibleProvider>
     </>
   );
 }
