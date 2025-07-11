@@ -11,6 +11,8 @@ import Projects from "@/components/pc/projects";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import PlausibleProvider from 'next-plausible'
+import Contact from "@/components/pc/contact";
+import ContactMobile from "@/components/mobile/contactMobile";
 
 export default function Home() {
 
@@ -38,6 +40,9 @@ export default function Home() {
             <div id="projects">
               <Projects />
             </div>
+            <div id="contact">
+              <Contact />
+            </div>
             <PaddingAbajo />
           </>
         ) : (
@@ -51,6 +56,9 @@ export default function Home() {
             </div>
             <div id="projects">
               <ProjectsMobile />
+            </div>
+            <div id="contact">
+              <ContactMobile />
             </div>
             <PaddingAbajo />
           </>

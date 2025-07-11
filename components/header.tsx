@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Github, Twitter, Linkedin, Mail, ArrowRight, Youtube, Instagram, X, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isScrolledMobile, setIsScrolledMobile] = useState(false);
   const [DrawerOpen, setDrawerOpen] = useState(false);
+  const router = useRouter();
 
   const targetDate = new Date('August 13, 2025 00:00:00');
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
@@ -146,8 +148,7 @@ export default function Header() {
                 {/* Botones */}
                 <div className="flex items-center gap-4 whitespace-nowrap">
                   <motion.a
-                    href='https://feedyform.com/submit/workwithandrews'
-                    target='_blank'
+                    href='/#contact'
                     className="text-black text-sm font-medium transition-colors duration-300 group flex items-center gap-2"
                     whileHover={{ x: 1 }}
                     whileTap={{ scale: 0.98 }}
@@ -157,8 +158,7 @@ export default function Header() {
                   </motion.a>
 
                   <motion.a
-                    href='https://feedyform.com/submit/letstalkandrews'
-                    target='_blank'
+                    href='/#contact'
                     className="bg-black/10 hover:bg-black/20 border border-black/30 hover:border-black/50 text-black px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm"
 
                     whileHover={{ scale: 0.90 }}
@@ -246,15 +246,18 @@ export default function Header() {
                    {link.name}
                  </motion.a>
                )) : navLinks.map((link) => (
-                 <motion.a
+                 <motion.div
                    key={link.name}
-                   href={link.href}
+                   onClick={() => {
+                    router.push(link.href)
+                    setDrawerOpen(false)
+                  }}
                    className={cn("relative  transition-colors items-center justify-center duration-300 text-sm font-medium group whitespace-nowrap", isScrolledMobile ? 'text-black' : 'text-black')}
                    whileHover={{ scale: 1.15 }}
                    whileTap={{ y: 0 }}
                  >
                    {link.name}
-                 </motion.a>
+                 </motion.div>
                ))}
                {DrawerOpen && <motion.a
               key={'myplan'}
@@ -274,16 +277,18 @@ export default function Header() {
                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
              >               {/* Botones */}
 
- <motion.a
-   target='_blank'
-                   href='https://feedyform.com/submit/letstalkandrews'
+ <motion.div
+   onClick={() => {
+    router.push('/#contact')
+    setDrawerOpen(false)
+  }}
    className="bg-black/10 hover:bg-black/20 border border-black/30 hover:border-black/50 text-black px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm"
 
    whileHover={{ scale: 0.90 }}
    whileTap={{ scale: 1 }}
  >
    Let's talk
- </motion.a>
+ </motion.div>
 
 {/* Divisor */}
 <div className="w-24 h-px bg-black/30 flex-shrink-0" />

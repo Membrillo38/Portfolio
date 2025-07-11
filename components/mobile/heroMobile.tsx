@@ -20,7 +20,7 @@ function HeroMobile() {
   const wordRef = useRef<HTMLSpanElement>(null);
   const measureRef = useRef<HTMLSpanElement>(null);
 
-  const sentence = ['In', 'Love', 'With'];
+  const sentence = ['In', 'Love'];
   const ending = ['New', 'Things'];
 
   // easing

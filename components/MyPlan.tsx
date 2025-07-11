@@ -483,7 +483,7 @@ function MyPlan() {
   return (
     <div className='w-full bg-black min-h-screen' id='myplan'>
      <div className='min-h-screen  flex flex-col items-center justify-center w-full '>
-       <div className="text-white lg:h-screen h-[90vh] lg:h-fit w-full flex flex-col lg:flex-row items-center justify-center">
+       <div className="text-white h-[90vh] lg:h-fit w-full flex flex-col lg:flex-row items-center justify-center">
            <TimeUnit value={timeLeft.days} label="Days" />
            <TimeUnit value={timeLeft.hours} label="Hours" />
            <TimeUnit value={timeLeft.minutes} label="Minutes" />
