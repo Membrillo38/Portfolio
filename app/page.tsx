@@ -26,7 +26,6 @@ export default function Home() {
 
   return (
     <>
-        <PlausibleProvider domain="andresportfolio.vercel.app">
         {isLargeScreen ? (
           <>
             <Header />
@@ -56,7 +55,6 @@ export default function Home() {
             <PaddingAbajo />
           </>
         )}
-      </PlausibleProvider>
     </>
   );
 }

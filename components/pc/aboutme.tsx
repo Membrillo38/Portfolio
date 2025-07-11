@@ -11,7 +11,7 @@ function AboutMe() {
    
     
     <div className='min-h-screen  w-full bg-black' id='about'>
-        <div className='p-12 flex'>
+        <div className='p-12 px-24 flex'>
           <div className='mt-24 w-2/3 flex flex-col items-start justify-center '>
             <motion.div
               initial={{ opacity: 0, y: -20 }}
